@@ -1,0 +1,52 @@
+
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-8">
+        <div class=" card">
+          <div class=" card-header"><h5 class=" title">Login</h5></div>
+          <div class=" card-body">
+            <form>
+              <div class=" row">
+               
+               
+                <div class=" col-md-6 offset-md-3">
+                  <div *ngIf="!isSignedIn" class=" form-group">
+                    <label for="exampleInputEmail1"> Email address </label>
+                    <input class=" form-control" placeholder="mike@email.com" type="text" name="email" [(ngModel)]="email" #emailSignup/>
+                    <label>Password</label>
+                    <input class=" form-control" type="password" name="senha" [(ngModel)]="senha" #passwordSignup/>
+                    <div class=" text-center card-footer">
+                    <button class="btn btn-danger" (click)="onSignup(emailSignup.value,passwordSignup.value)"><a routerLink="/dashboard" id="cs">SignUP</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             <div class=" row">
+                <div class="  col-md-6 offset-md-3">
+                  <div *ngIf="!isSignedIn" class=" form-group">
+                    
+                    <label for="exampleInputEmail1"> Email address </label>
+                    <input class=" form-control" placeholder="mike@email.com" type="text" #email/>
+                    <label>Password</label>
+                    <input class=" form-control" type="password" #password/>
+                    <div class=" text-center card-footer">
+                    <button class="btn btn-danger" (click)="onSignin(emailSignin.value,passwordSignin.value)" >SignIn</button>
+                    </div>
+                   
+                      
+                    
+                  </div>
+                </div>
+              </div>
+            
+             
+            
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <app-navbar *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-navbar>
